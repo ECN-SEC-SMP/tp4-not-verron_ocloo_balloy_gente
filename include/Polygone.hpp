@@ -10,6 +10,7 @@
 # pragma once 
 
 #include "Point2D.hpp"
+#include <iostream>
 #include <vector>
 
 /**
@@ -103,3 +104,20 @@ class Polygone {
             setSommets (sommetsTranslates);
         }
 };
+
+/**
+ * @brief Surcharge de l'opérateur d'insertion pour afficher un Polygone.
+ *
+ * Formate le polygone sous la forme : Polygone{(x1, y1), (x2, y2), ...}
+ */
+template <typename T>
+std::ostream &operator<<(std::ostream &os, Polygone<T> const &poly)
+{
+    std::vector<Point2D<T>> verts = poly.getSommets();
+    os << "Polygone{";
+    for (Point2D <T> p : poly.getSommets()) {
+        os << p << ", ";
+    }
+    os << "}";
+    return os;
+}
