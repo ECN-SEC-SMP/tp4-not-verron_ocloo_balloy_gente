@@ -18,13 +18,13 @@ class Parcelle{
 
         // Constructeurs
         Parcelle();
-        Parcelle(int num, std::string prop, Polygone<int,float> forme);
+        Parcelle(int num, std::string prop, Polygone<int> forme);
 
         // Getters
         int getNumero();
         std::string getProprietaire();
         float getSurface();
-        Polygone<int,float> getForme();
+        Polygone<int> getForme();
         virtual std::string getType() = 0;
 
         // Setters
@@ -34,5 +34,14 @@ class Parcelle{
         virtual void setType(std::string type) = 0;
 
         // Surcharge d'opérateurs
-        friend std::ostream& operator<<(std::ostream &o);
+        friend std::ostream& operator<<(std::ostream &o, Parcelle const& p)
+        {
+            o << "Parcelle n°" << p.numero << " :" << std::endl;
+            o << "      Type : " << p.type << std::endl;
+            o << "      Polygone : " << p.forme << std::endl;
+            o << "      Proprietaire : " << p.proprietaire << std::endl;
+            o << "      Surface : " << p.surface << std::endl;
+            o << "      \% constructible : " << p.pConstructible << std::endl;
+            return o;
+        }
 };

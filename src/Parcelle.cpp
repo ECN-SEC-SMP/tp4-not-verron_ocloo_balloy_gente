@@ -2,9 +2,7 @@
 
 // Constructeurs
 
-Parcelle::Parcelle();
-
-Parcelle::Parcelle(int num, std::string prop, Polygone<int,float> forme){
+Parcelle::Parcelle(int num, std::string prop, Polygone<int> forme){
     this->numero = num;
     this->proprietaire = prop;
     this->forme = forme;
@@ -24,7 +22,7 @@ float Parcelle::getSurface(){
     return surface;
 }
 
-Polygone<int,float> Parcelle::getForme(){
+Polygone<int> Parcelle::getForme(){
     return forme;
 }
 
@@ -40,17 +38,4 @@ void Parcelle::setProprietaire(std::string prop){
 
 void Parcelle::setForme(Polygone<int> forme){
     this->forme = forme;
-}
-
-// Surcharge d'opérateur
-
-friend std::ostream& operator<<(std::ostream &o)
-{
-    o << "Parcelle n°" << numero << " :" << endl;
-    o << "      Type : " << type << endl;
-    o << "      Polygone : " << forme << endl;
-    o << "      Proprietaire : " << proprietaire << endl;
-    o << "      Surface : " << surface << endl;
-    o << "      \% constructible : " << pConstructible << endl;
-    return o;
 }
