@@ -1,17 +1,17 @@
-#### Compte rendu TP noté "Plan local d'urbanisme (PLU)"
+# Compte rendu TP noté "Plan local d'urbanisme (PLU)"
 ***Aurélien Gente - Philippe Ocloo - Thomas Verron - Quentin Balloy***
 **SEC 2027 - POO**
 
 
 
-### Choix techniques réalisés ###
+## Choix techniques réalisés
 
-## Classe "Parcelle"
+### Classe "Parcelle"
 - setType() n'est plus virtual (consigne de l'énoncé). En effet, il est utilisé dans le constructeur de ZU, ZAU, ZN, ZA.
 
-### Tests ###
+## Tests
 
-## Lancer des tests
+### Lancer des tests
 - Les tests sont présents à tp4-not-verron_ocloo_balloy_gente/tests
 - Les tests sont à compiler avec la commande `make test`
 - Les tests sont exécutables avec la commande ./tp4-not-verron_ocloo_balloy_gente/[Nom du test]
