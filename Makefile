@@ -74,9 +74,13 @@ clean:
 TEST_SRCS := $(wildcard tests/*.cpp)
 TEST_BIN  := $(patsubst tests/%.cpp,$(BUILDDIR)/%_test,$(TEST_SRCS))
 
+# Implementation sources to link with tests (exclude main.cpp to avoid multiple mains)
+TEST_IMPL := $(filter-out $(SRCDIR)/main.cpp,$(SRCS))
+
 .PHONY: test
 test: $(TEST_BIN)
 
 $(BUILDDIR)/%_test: tests/%.cpp | $(BUILDDIR)
-	$(CXX) $(CXXFLAGS) $< -o $@
+	# Compile the test and link against the implementation sources (excluding main.cpp)
+	$(CXX) $(CXXFLAGS) $< $(TEST_IMPL) -o $@
 
