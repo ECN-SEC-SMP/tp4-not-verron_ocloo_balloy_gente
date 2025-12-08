@@ -62,7 +62,17 @@ public :
      */
     std::string getTypeCulture() const;
 
+    /**
+     * @brief Retourne le type de la parcelle.
+     * @return "ZA" le type de cette zone agricole.
+     */
     std::string getType() const override;
 
+    /**
+     * @brief Surcharge de l'opérateur d'affichage pour ZA.
+     * @param o Flux de sortie.
+     * @param za Référence constante à l'objet ZA à afficher.
+     * @return Le flux de sortie modifié.
+     */
     friend std::ostream& operator<<(std::ostream &o, ZA const& za);
 };

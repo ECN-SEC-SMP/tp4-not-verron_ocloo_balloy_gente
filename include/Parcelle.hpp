@@ -108,12 +108,6 @@ class Parcelle{
         void setType(std::string type) {this->type = type;};
 
         /**
-         * @brief Définit le pourcentage constructible de la parcelle
-         * @param p Le nouveau pourcentage constructible
-         */
-        void setPConstructible(int p);
-
-        /**
          * @brief Calcule la surface de la parcelle en m²
          * @return La surface calculée
          */
