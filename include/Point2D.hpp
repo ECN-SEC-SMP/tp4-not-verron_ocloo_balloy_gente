@@ -54,13 +54,13 @@ public:
      * @brief Retourne la coordonnée X du point.
      * @return T valeur de x.
      */
-    T getX() { return x; }
+    T getX() const { return x; }
 
     /**
      * @brief Retourne la coordonnée Y du point.
      * @return T valeur de y.
      */
-    T getY() { return y; }
+    T getY() const { return y; }
     
     /**
      * @brief Définit la coordonnée X du point.
@@ -87,7 +87,7 @@ public:
 template <typename T>
 ostream &operator<<(ostream &s, Point2D<T> const &p)
     {
-        s << "[" << p.x << ", " << p.y << "]";
+        s << "[" << p.getX() << ", " << p.getY() << "]";
         return s;
     }
 

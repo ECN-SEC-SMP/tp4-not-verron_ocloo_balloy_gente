@@ -2,6 +2,11 @@
 
 // Constructeurs
 
+Parcelle::Parcelle(){
+    this->numero = 0;
+    this->proprietaire = "";
+}
+
 Parcelle::Parcelle(int num, std::string prop, Polygone<int> forme){
     this->numero = num;
     this->proprietaire = prop;

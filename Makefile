@@ -34,4 +34,4 @@ $(BUILDDIR):
 	mkdir -p $(BUILDDIR)
 
 clean:
-	rm -rfv $(BUILDDIR) && rm -rfv $(ASSETSDIR)/lexique*
+	rm -rfv $(BUILDDIR)

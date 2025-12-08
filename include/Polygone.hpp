@@ -39,19 +39,19 @@ class Polygone {
         /**
          * @brief Constructeur par défaut — crée un polygone vide.
          */
-        Polygone ()                                                         {}
+        Polygone ()                                                         {};
 
         /**
          * @brief Constructeur à partir d'un vecteur de sommets.
          * @param sommets Vecteur des sommets à utiliser pour initialiser le polygone.
          */
-        Polygone (std::vector <Point2D <T> > sommets) : sommets (sommets)   {}
+        Polygone (std::vector <Point2D <T> > sommets) : sommets (sommets)   {};
 
         /**
          * @brief Constructeur de copie.
          * @param p Polygone source à copier.
          */
-        Polygone (Polygone<T> & const p) : sommets (p.sommets)              {}
+        Polygone (Polygone<T> &p) : sommets (p.sommets)              {};
 
 //----------------------------------------------------------------------------------------------------
 // Destructeur 
@@ -59,7 +59,7 @@ class Polygone {
         /**
          * @brief Destructeur par défaut.
          */
-        ~Polygone()                                                         default;
+        ~Polygone()                                                         {}
 
 //----------------------------------------------------------------------------------------------------
 // Accesseurs 
@@ -68,13 +68,13 @@ class Polygone {
          * @brief Retourne la liste des sommets (copie).
          * @return std::vector<Point2D<T>> Copie du vecteur de sommets.
          */
-        std::vector <Point2D <T> > getSommets ()                            {return this->sommets};
+        std::vector <Point2D <T> > getSommets() const                       {return this->sommets;}
 
         /**
          * @brief Remplace la liste des sommets par une nouvelle liste.
          * @param inSommets Nouveau vecteur de sommets.
          */
-        void setSommets (std::vector <Point2D <T> > inSommets)              {this->sommets = inSommets};
+        void setSommets (std::vector <Point2D <T> > inSommets)              {this->sommets = inSommets;}
 
 //----------------------------------------------------------------------------------------------------
 // Methodes 
@@ -88,7 +88,7 @@ class Polygone {
             newSommets.push_back(p);
 
             setSommets (newSommets);
-        }
+        };
 
         /**
          * @brief Translate tous les sommets du polygone.
@@ -102,7 +102,7 @@ class Polygone {
                 p.translater (x, y);
             }
             setSommets (sommetsTranslates);
-        }
+        };
 };
 
 /**
