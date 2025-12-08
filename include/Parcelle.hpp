@@ -105,6 +105,12 @@ class Parcelle{
         void setType(std::string type) {this->type = type;};
 
         /**
+         * @brief Calcule la surface de la parcelle en m²
+         * @return La surface calculée
+         */
+        float calculerSurface();
+
+        /**
          * @brief Surcharge de l'opérateur de flux de sortie
          * @param o Le flux de sortie
          * @param p La parcelle à afficher
