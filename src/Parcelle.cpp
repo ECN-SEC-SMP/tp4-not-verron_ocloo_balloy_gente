@@ -22,11 +22,11 @@ Parcelle::Parcelle(int num, std::string prop, Polygone<int> forme)
     for (int i = 0; i < n; i++)
     {
         Point2D<int> p1 = sommets[i];
-        Point2D<int> p2 = sommets[(i + 1)];
+        Point2D<int> p2 = sommets[(i + 1)%n];
 
         area += (p1.getX() * p2.getY()) - (p1.getY() * p2.getX());
     }
-    area = area / 2.0;
+    area = abs(area) / 2.0;
 
     this->surface = area;
 }
