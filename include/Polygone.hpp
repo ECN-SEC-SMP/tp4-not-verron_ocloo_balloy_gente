@@ -51,7 +51,18 @@ class Polygone {
          * @brief Constructeur de copie.
          * @param p Polygone source à copier.
          */
-        Polygone (Polygone<T> &p) : sommets (p.sommets)              {};
+        Polygone (const Polygone<T> &p) : sommets (p.sommets)        {};
+
+        /**
+         * @brief Opérateur d'assignement.
+         * @param p Polygone source à copier.
+         */
+        Polygone<T>& operator=(const Polygone<T> &p) {
+            if (this != &p) {
+                this->sommets = p.sommets;
+            }
+            return *this;
+        }
 
 //----------------------------------------------------------------------------------------------------
 // Destructeur 

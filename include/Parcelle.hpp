@@ -20,7 +20,6 @@ class Parcelle{
 
     private :
 
-        std::string type; ///< Type de la parcelle
         int numero; ///< Numéro d'identification de la parcelle
         std::string proprietaire; ///< Nom du propriétaire de la parcelle
         float surface; ///< Surface de la parcelle en m²
@@ -29,7 +28,7 @@ class Parcelle{
 
     protected : 
 
-        std::string type;
+        std::string type;///< Type de la parcelle
 
     public :
 
