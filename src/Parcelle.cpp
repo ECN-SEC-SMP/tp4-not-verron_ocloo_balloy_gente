@@ -97,6 +97,13 @@ void Parcelle::setForme(Polygone<int> forme){
     this->forme = forme;
 }
 
+/**
+ * @brief Définit le pourcentage constructible de la parcelle
+ * @param p Le nouveau pourcentage constructible
+ */
+void Parcelle::setPConstructible(int p){
+    this->pConstructible = p;
+}
 std::ostream& operator<<(std::ostream &o, Parcelle const& p)
 {
     o << "Parcelle n°" << p.numero << " :" << std::endl;
