@@ -1,11 +1,10 @@
 #include "ZU.hpp"
 
-ZU::ZU(){
-
+ZU::ZU(int num, std::string prop, Polygone<int> forme) : Parcelle(num, prop, forme){
+    this->setType("ZN");
 }
 
 ZU::~ZU(){
-
 }
 
 float ZU::getSurfaceConstruite(){
@@ -17,5 +16,5 @@ void ZU::setSurfaceConstruite(float S) {
 }
 
 float ZU::surfaceConstructible(){
-    	
+    return ((this->getPConstructible()/100)*this->getSurface() - this->surfaceConstruite);
 }

@@ -83,7 +83,7 @@ public:
 
     friend ostream &operator<<(ostream &s, Point2D const &p)
     {
-        s << " le point à pour coordonnée x, y : (" << p.x << ", " << p.y << ")";
+        s << "[" << p.x << ", " << p.y << "]";
         return s;
     }
 };
