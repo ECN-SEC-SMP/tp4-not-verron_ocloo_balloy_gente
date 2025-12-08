@@ -95,10 +95,45 @@ Carte::Carte(std::string file) {
     } else {
         std::cout << "Erreur : Impossible de lire le fichier." << std::endl;
     }
+    // Calcul de la surface totale de la carte
+    this->surface = 0.0;
+    for (const auto& parcelle : listeParcelles) {
+        this->surface += parcelle->getSurface();
+    }
 }   
 
 void Carte::afficherParcelles() const {
+    std::cout << "Surface totale de la carte : " << this->surface << std::endl;
     for (const auto& parcelle : listeParcelles) {
         std::cout << *parcelle << std::endl;
     }
+}
+
+void Carte::sauvegarderCarte(const std::string& filename) const {
+    std::ofstream fichier(filename);
+    if (fichier.is_open()) {
+        for (const auto& parcelle : listeParcelles) {
+            fichier << *parcelle << std::endl;
+        }
+        fichier.close();
+    } else {
+        std::cout << "Erreur : Impossible d'ouvrir le fichier pour sauvegarde." << std::endl;
+    }
+}
+
+// Setters et Getters
+void Carte::setListeParcelles(const std::vector<Parcelle*>& listeParcelles) {
+    this->listeParcelles = listeParcelles;
+}
+
+std::vector<Parcelle*> Carte::getListeParcelles() const {
+    return this->listeParcelles;
+}
+
+float Carte::getSurface() const {
+    return this->surface;
+}
+
+void Carte::setSurface(float surface) {
+    this->surface = surface;
 }

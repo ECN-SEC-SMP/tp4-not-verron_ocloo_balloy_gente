@@ -23,6 +23,7 @@ public:
 
     //Méthodes
     void afficherParcelles() const;
+    void sauvegarderCarte(const std::string& filename) const;
 
     //Getters   
     std::vector<Parcelle*> getListeParcelles() const;
