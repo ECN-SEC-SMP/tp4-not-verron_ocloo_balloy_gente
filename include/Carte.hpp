@@ -4,6 +4,8 @@
 #include "Parcelle.hpp"
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <fstream>
 
 class Carte {
 private:
