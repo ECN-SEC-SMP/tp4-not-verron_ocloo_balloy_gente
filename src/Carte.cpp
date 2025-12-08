@@ -1,21 +1,98 @@
-#include "Carte.hpp"
+#include "../include/Carte.hpp"
 
-Carte::Carte(string file){
-    ifstream fichier("../assets/Parcelles_short.txt"); // Ouvre le fichier en lecture
-    string ligne;
-    string mot;
+Carte::Carte(std::string file) {
+    std::ifstream fichier(file); // Ouvre le fichier en lecture
+    std::string ligne;
+    std::string mot;
+    std::string typeParcelle;// type de parcelle
+    std::string numero;// numéro de la parcelle
+    std::string propriétaire;// propriétaire de la parcelle
+    std::string partieConstructible;// poucentage constructible
+    std::string surfaceConstructible;// coordonnées de la parcelle
+    std::string typeCulture;// type de culture
+    std::vector<Point2D<int>> sommets; // liste des sommets du polygone
+    std::string x_str, y_str;
 
     if (fichier.is_open()) {
         while (getline(fichier, ligne)) { // Lit la première ligne
-            while (getline(fichier, ligne)) { // Lit la deuxième ligne
-                std::stringstream ss(ligne);
-                while (getline(ss, mot, ' ')){ // Lit jusqu'au premier espace
-                    cout << mot << endl;
-                }            
+
+            std::cout<< "Ligne 1/2" << std::endl;
+            std::stringstream ss(ligne);
+
+            getline(ss, typeParcelle, ' ');
+            
+            std::cout << "Enregistrement d'une parcelle de type : " << typeParcelle << std::endl;
+            if (typeParcelle == "ZU") {
+                getline(ss, numero, ' ');
+                getline(ss, propriétaire, ' ');
+                getline(ss, partieConstructible, ' ');
+                getline(ss, surfaceConstructible, ' ');
             }
+            else if (typeParcelle == "ZAU") {
+                getline(ss, numero, ' ');
+                getline(ss, propriétaire, ' ');
+                getline(ss, partieConstructible, ' ');
+            }
+            else if (typeParcelle == "ZA") {
+                getline(ss, numero, ' ');
+                getline(ss, propriétaire, ' ');
+                getline(ss, typeCulture, ' ');
+            }
+            else if (typeParcelle == "ZN") {
+                getline(ss, numero, ' ');
+                getline(ss, propriétaire, ' ');
+            }
+            else {
+                std::cout << "Type de parcelle inconnu" << std::endl;
+            }
+
+
+            std::cout<< "Ligne 2/2" << std::endl;
+            getline(fichier, ligne); // Lit la deuxième ligne
+            std::stringstream ss2(ligne);
+            while (getline(ss2, mot, ' ')) {
+                std::cout << "Coordonnée Point string : " << mot << std::endl;
+                std::stringstream coord(mot);
+                getline(coord, x_str, '[');// enlever le [
+                getline(coord, x_str, ';');// lire jusqu'au ;
+                getline(coord, y_str, ']');// lire jusqu'au ]
+
+                int x = std::stoi(x_str);
+                int y = std::stoi(y_str);
+                std::cout << "Coordonnée Point float : " << x << " ; " << y << std::endl;
+
+                Point2D<int> point(x, y);
+                sommets.push_back(point);
+            }
+            Polygone<int> polygone(sommets);
+
+
+            // Création de la parcelle en fonction du type
+            if (typeParcelle == "ZU") {
+                ZU* parcelleZU = new ZU(std::stoi(numero), propriétaire, polygone);
+                parcelleZU->setPConstructible(std::stof(partieConstructible));
+                parcelleZU->setSurfaceConstruite(std::stof(surfaceConstructible));
+                this->listeParcelles.push_back(*parcelleZU);
+            }
+            else if (typeParcelle == "ZAU") {
+                ZAU* parcelleZAU = new ZAU(std::stoi(numero), propriétaire, polygone);
+                parcelleZAU->setPConstructible(std::stof(partieConstructible));
+                this->listeParcelles.push_back(*parcelleZAU);
+            }
+            else if (typeParcelle == "ZA") {
+                ZA* parcelleZA = new ZA(std::stoi(numero), propriétaire, polygone, typeCulture);
+                this->listeParcelles.push_back(*parcelleZA);
+            }
+            else if (typeParcelle == "ZN") {
+                ZN* parcelleZN = new ZN(std::stoi(numero), propriétaire, polygone);
+                this->listeParcelles.push_back(*parcelleZN);
+            }       
+            std::cout<< "============== Fin d'enregistrement d'une parcelle ===============" << std::endl;
+
+
         }
         fichier.close(); // Ferme le fichier
     } else {
-        cout << "Erreur : Impossible de lire le fichier." << endl;
+        std::cout << "Erreur : Impossible de lire le fichier." << std::endl;
     }
 }   

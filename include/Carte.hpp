@@ -1,8 +1,14 @@
 #pragma once
 
 #include <vector>
-#include "Parcelle.hpp"
 #include <iostream>
+#include "../include/Parcelle.hpp"
+#include "../include/Polygone.hpp"
+#include "../include/Point2D.hpp"
+#include "../include/ZU.hpp"
+#include "../include/ZAU.hpp"
+#include "../include/ZA.hpp"
+#include "../include/ZN.hpp"
 #include <string>
 #include <sstream>
 #include <fstream>
@@ -13,7 +19,7 @@ private:
     float surface;
 public:
     //Constructeur 
-    Carte(string file);
+    Carte(std::string file);
 
     //Getters   
     std::vector<Parcelle> getListeParcelles() const;

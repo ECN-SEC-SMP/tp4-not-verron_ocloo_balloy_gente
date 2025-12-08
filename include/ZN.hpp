@@ -20,7 +20,7 @@
  * Hérite de Parcelle et de Constructible. Une zone est une
  * zone où la construction est interdite selon les règles d'urbanisme.
  */
-class ZN : public Parcelle, public Constructible
+class ZN : public Parcelle
 {
 public:
     /**
