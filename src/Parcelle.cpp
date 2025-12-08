@@ -108,7 +108,7 @@ float Parcelle::calculerSurface(){
 
     for (int i = 0; i < n; i++) {
         Point2D<int> p1 = sommets[i];
-        Point2D<int> p2 = sommets[(i + 1)]; // Wrap around to the first point
+        Point2D<int> p2 = sommets[(i + 1)];
 
         area += (p1.getX() * p2.getY()) - (p1.getY() * p2.getX());
     }
