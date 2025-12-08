@@ -109,7 +109,7 @@ class Polygone {
         void translater (T x, T y) {
             std::vector<Point2D <T> > sommetsTranslates = this->sommets;
 
-            for (Point2D <T> p : sommetsTranslates) {
+            for (Point2D <T> &p : sommetsTranslates) {
                 p.translater (x, y);
             }
             setSommets (sommetsTranslates);

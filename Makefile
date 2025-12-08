@@ -67,3 +67,16 @@ $(BUILDDIR):
 
 clean:
 	rm -rf $(BUILDDIR)
+
+# ----------------------------
+# Tests
+# ----------------------------
+TEST_SRCS := $(wildcard tests/*.cpp)
+TEST_BIN  := $(patsubst tests/%.cpp,$(BUILDDIR)/%_test,$(TEST_SRCS))
+
+.PHONY: test
+test: $(TEST_BIN)
+
+$(BUILDDIR)/%_test: tests/%.cpp | $(BUILDDIR)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
