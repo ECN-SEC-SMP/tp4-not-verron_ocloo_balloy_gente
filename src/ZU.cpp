@@ -24,15 +24,14 @@ std::string ZU::getType() const {
     return this->type;
 }
 
-std::ostream& operator<<(std::ostream &o, ZU const& zu)
+void ZU::display(std::ostream& o) const
 {
-    o << "Parcelle n°" << zu.getNumero() << " :" << std::endl;
-    o << "      Type : " << zu.getType() << std::endl;
-    o << "      Polygone : " << zu.getForme() << std::endl;
-    o << "      Proprietaire : " << zu.getProprietaire() << std::endl;
-    o << "      Surface : " << zu.getSurface() << std::endl;
-    o << "      \% constructible : " << zu.getPConstructible() << std::endl;
-    o << "      surface construite : " << zu.surfaceConstruite << std::endl;
-    o << "      surface à construire restante : " << zu.surfaceConstructible() << std::endl;
-    return o;
+    o << "Parcelle n°" << getNumero() << " :" << std::endl;
+    o << "      Type : " << getType() << std::endl;
+    o << "      Polygone : " << getForme() << std::endl;
+    o << "      Proprietaire : " << getProprietaire() << std::endl;
+    o << "      Surface : " << getSurface() << std::endl;
+    o << "      \% constructible : " << getPConstructible() << std::endl;
+    o << "      surface construite : " << surfaceConstruite << std::endl;
+    o << "      surface à construire restante : " << surfaceConstructible() << std::endl;
 }

@@ -113,11 +113,7 @@ class Parcelle{
          */
         void setPConstructible(int p);
 
-        /**
-         * @brief Calcule la surface de la parcelle en m²
-         * @return La surface calculée
-         */
-        float calculerSurface();
+        virtual void display(std::ostream& os) const;
 
         /**
          * @brief Surcharge de l'opérateur de flux de sortie
@@ -125,5 +121,5 @@ class Parcelle{
          * @param p La parcelle à afficher
          * @return Le flux de sortie modifié
          */
-        friend std::ostream& operator<<(std::ostream &o, Parcelle const& p);
+        friend std::ostream& operator<<(std::ostream &o, const Parcelle& p);
 };

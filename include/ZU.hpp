@@ -61,11 +61,5 @@ public :
      */
     std::string getType() const override;
     
-    /**
-     * @brief Surcharge de l'opérateur d'affichage pour ZU.
-     * @param o Flux de sortie.
-     * @param zu Référence constante à l'objet ZU à afficher.
-     * @return Le flux de sortie modifié.
-     */
-    friend std::ostream& operator<<(std::ostream &o, ZU const& zu);
+    void display(std::ostream& o) const override;
 };

@@ -25,7 +25,7 @@ int main()
     assert(zn.getProprietaire() == "owner");
     cout << "[OK] test_Parcelle : Verifiation du proprietaire \n";
 
-    float area = zn.calculerSurface();
+    float area = zn.getSurface();
 
     assert(area == 4.);
     cout << "[OK] test_Parcelle : Verifiation du calcul de la surface \n";

@@ -48,14 +48,13 @@ public:
      * @param zn Référence constante à l'objet ZN à afficher.
      * @return Le flux de sortie modifié.
      */
-    friend std::ostream &operator<<(std::ostream &o, ZN const &zn)
+    void display(std::ostream& o) const override
     {
-        o << "Parcelle n°" << zn.getNumero() << " :" << std::endl;
-        o << "      Type : " << zn.getType() << std::endl;
-        o << "      Polygone : " << zn.getForme() << std::endl;
-        o << "      Proprietaire : " << zn.getProprietaire() << std::endl;
-        o << "      Surface : " << zn.getSurface() << std::endl;
-        return o;
+        o << "Parcelle n°" << getNumero() << " :" << std::endl;
+        o << "      Type : " << getType() << std::endl;
+        o << "      Polygone : " << getForme() << std::endl;
+        o << "      Proprietaire : " << getProprietaire() << std::endl;
+        o << "      Surface : " << getSurface() << std::endl;
     }
 };
 
