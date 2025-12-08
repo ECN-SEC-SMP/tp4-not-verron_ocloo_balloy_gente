@@ -15,17 +15,20 @@
 
 class Carte {
 private:
-    std::vector<Parcelle> listeParcelles;
+    std::vector<Parcelle*> listeParcelles;
     float surface;
 public:
     //Constructeur 
     Carte(std::string file);
 
+    //Méthodes
+    void afficherParcelles() const;
+
     //Getters   
-    std::vector<Parcelle> getListeParcelles() const;
+    std::vector<Parcelle*> getListeParcelles() const;
     float getSurface() const;
 
     //Setters
-    void setListeParcelles(const std::vector<Parcelle>& listeParcelles);
+    void setListeParcelles(const std::vector<Parcelle*>& listeParcelles);
     void setSurface(float surface);
 };

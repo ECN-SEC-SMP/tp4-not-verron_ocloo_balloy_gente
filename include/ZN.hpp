@@ -41,12 +41,6 @@ public:
      * @return "ZN" le type de cette zone non-aedificandi.
      */
     std::string getType() const override {return this->type;}
-    
-    /**
-     * @brief Calcule la surface constructible (toujours 0 pour ZN).
-     * @return 0, car aucune construction n'est autorisée.
-     */
-    float surfaceConstructible() const override { return 0.0f; }
 
     /**
      * @brief Surcharge de l'opérateur d'affichage pour ZN.

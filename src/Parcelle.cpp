@@ -67,7 +67,6 @@ std::ostream& operator<<(std::ostream &o, Parcelle const& p)
 }
 
 // Méthode
-
 float Parcelle::calculerSurface(){
     float area = 0.0;
     std::vector<Point2D<int>> sommets = forme.getSommets();

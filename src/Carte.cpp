@@ -72,27 +72,33 @@ Carte::Carte(std::string file) {
                 ZU* parcelleZU = new ZU(std::stoi(numero), propriétaire, polygone);
                 parcelleZU->setPConstructible(std::stof(partieConstructible));
                 parcelleZU->setSurfaceConstruite(std::stof(surfaceConstructible));
-                this->listeParcelles.push_back(*parcelleZU);
+                this->listeParcelles.push_back(parcelleZU);
             }
             else if (typeParcelle == "ZAU") {
                 ZAU* parcelleZAU = new ZAU(std::stoi(numero), propriétaire, polygone);
                 parcelleZAU->setPConstructible(std::stof(partieConstructible));
-                this->listeParcelles.push_back(*parcelleZAU);
+                this->listeParcelles.push_back(parcelleZAU);
             }
             else if (typeParcelle == "ZA") {
                 ZA* parcelleZA = new ZA(std::stoi(numero), propriétaire, polygone, typeCulture);
-                this->listeParcelles.push_back(*parcelleZA);
+                this->listeParcelles.push_back(parcelleZA);
             }
             else if (typeParcelle == "ZN") {
                 ZN* parcelleZN = new ZN(std::stoi(numero), propriétaire, polygone);
-                this->listeParcelles.push_back(*parcelleZN);
-            }       
+                this->listeParcelles.push_back(parcelleZN);
+            }
             std::cout<< "============== Fin d'enregistrement d'une parcelle ===============" << std::endl;
 
-
+            sommets.clear(); // Vide la liste des sommets pour la prochaine parcelle
         }
         fichier.close(); // Ferme le fichier
     } else {
         std::cout << "Erreur : Impossible de lire le fichier." << std::endl;
     }
 }   
+
+void Carte::afficherParcelles() const {
+    for (const auto& parcelle : listeParcelles) {
+        std::cout << *parcelle << std::endl;
+    }
+}
