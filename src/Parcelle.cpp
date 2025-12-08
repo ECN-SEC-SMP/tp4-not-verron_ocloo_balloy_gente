@@ -35,7 +35,7 @@ Parcelle::Parcelle(int num, std::string prop, Polygone<int> forme){
  * @brief Obtient le numéro de la parcelle
  * @return Le numéro de la parcelle
  */
-int Parcelle::getNumero(){
+int Parcelle::getNumero() const{
     return numero;
 }
 
@@ -43,7 +43,7 @@ int Parcelle::getNumero(){
  * @brief Obtient le nom du propriétaire
  * @return Le nom du propriétaire de la parcelle
  */
-std::string Parcelle::getProprietaire(){
+std::string Parcelle::getProprietaire() const{
     return proprietaire;
 }
 
@@ -51,7 +51,7 @@ std::string Parcelle::getProprietaire(){
  * @brief Obtient la surface de la parcelle
  * @return La surface de la parcelle en m²
  */
-float Parcelle::getSurface(){
+float Parcelle::getSurface() const{
     return surface;
 }
 
@@ -59,7 +59,7 @@ float Parcelle::getSurface(){
  * @brief Obtient la forme géométrique de la parcelle
  * @return Le polygone représentant la forme de la parcelle
  */
-Polygone<int> Parcelle::getForme(){
+const Polygone<int>& Parcelle::getForme() const{
     return forme;
 }
 
@@ -67,7 +67,7 @@ Polygone<int> Parcelle::getForme(){
  * @brief Obtient le pourcentage constructible
  * @return Le pourcentage constructible de la parcelle
  */
-int Parcelle::getPConstructible(){
+int Parcelle::getPConstructible() const{
     return pConstructible;
 }
 
@@ -95,6 +95,17 @@ void Parcelle::setProprietaire(std::string prop){
  */
 void Parcelle::setForme(Polygone<int> forme){
     this->forme = forme;
+}
+
+std::ostream& operator<<(std::ostream &o, Parcelle const& p)
+{
+    o << "Parcelle n°" << p.numero << " :" << std::endl;
+    o << "      Type : " << p.type << std::endl;
+    o << "      Polygone : " << p.forme << std::endl;
+    o << "      Proprietaire : " << p.proprietaire << std::endl;
+    o << "      Surface : " << p.surface << std::endl;
+    o << "      \% constructible : " << p.pConstructible << std::endl;
+    return o;
 }
 
 /**

@@ -60,5 +60,9 @@ public :
      * @brief Retourne le type de culture de cette zone agricole.
      * @return std::string Le type de culture.
      */
-    std::string getTypeCulture ();
+    std::string getTypeCulture() const;
+
+    std::string getType() const override;
+
+    friend std::ostream& operator<<(std::ostream &o, ZA const& za);
 };

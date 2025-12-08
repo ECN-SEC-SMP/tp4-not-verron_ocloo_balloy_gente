@@ -27,6 +27,10 @@ class Parcelle{
         Polygone <int> forme; ///< Forme géométrique de la parcelle
         int pConstructible; ///< Pourcentage constructible de la parcelle
 
+    protected : 
+
+        std::string type;
+
     public :
 
         /**
@@ -48,37 +52,37 @@ class Parcelle{
          * @brief Obtient le numéro de la parcelle
          * @return Le numéro de la parcelle
          */
-        int getNumero();
+        int getNumero() const;
         
         /**
          * @brief Obtient le nom du propriétaire
          * @return Le nom du propriétaire
          */
-        std::string getProprietaire();
+        std::string getProprietaire() const;
         
         /**
          * @brief Obtient la surface de la parcelle
          * @return La surface en m²
          */
-        float getSurface();
+        float getSurface() const;
         
         /**
          * @brief Obtient la forme géométrique de la parcelle
          * @return Le polygone représentant la forme
          */
-        Polygone<int> getForme();
+        const Polygone<int>& getForme() const;
         
         /**
          * @brief Obtient le type de la parcelle
          * @return Le type de la parcelle (méthode virtuelle pure)
          */
-        virtual std::string getType() = 0;
+        virtual std::string getType() const = 0;
         
         /**
          * @brief Obtient le pourcentage constructible
          * @return Le pourcentage constructible de la parcelle
          */
-        int getPConstructible();
+        int getPConstructible() const;
 
         /**
          * @brief Définit le numéro de la parcelle
@@ -116,14 +120,5 @@ class Parcelle{
          * @param p La parcelle à afficher
          * @return Le flux de sortie modifié
          */
-        friend std::ostream& operator<<(std::ostream &o, Parcelle const& p)
-        {
-            o << "Parcelle n°" << p.numero << " :" << std::endl;
-            o << "      Type : " << p.type << std::endl;
-            o << "      Polygone : " << p.forme << std::endl;
-            o << "      Proprietaire : " << p.proprietaire << std::endl;
-            o << "      Surface : " << p.surface << std::endl;
-            o << "      \% constructible : " << p.pConstructible << std::endl;
-            return o;
-        }
+        friend std::ostream& operator<<(std::ostream &o, Parcelle const& p);
 };

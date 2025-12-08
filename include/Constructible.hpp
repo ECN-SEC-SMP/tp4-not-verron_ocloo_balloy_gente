@@ -5,5 +5,5 @@ class Constructible
 public:
     Constructible() = default;
     ~Constructible() = default;
-    virtual float surfaceConstructible() = 0;
+    virtual float surfaceConstructible() const = 0;
 };

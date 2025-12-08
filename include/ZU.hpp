@@ -12,5 +12,7 @@ public :
     ~ZU();
     float getSurfaceConstruite();
     void setSurfaceConstruite(float S);
-    float surfaceConstructible() override;
+    float surfaceConstructible() const override;
+    std::string getType() const override;
+    friend std::ostream& operator<<(std::ostream &o, ZU const& zu);
 };
