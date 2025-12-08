@@ -26,6 +26,10 @@ Polygone<int> Parcelle::getForme(){
     return forme;
 }
 
+int Parcelle::getPConstructible(){
+    return pConstructible;
+}
+
 // Setteurs
 
 void Parcelle::setNumero(int n){

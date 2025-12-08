@@ -26,6 +26,7 @@ class Parcelle{
         float getSurface();
         Polygone<int> getForme();
         virtual std::string getType() = 0;
+        int getPConstructible();
 
         // Setters
         void setNumero(int n);
