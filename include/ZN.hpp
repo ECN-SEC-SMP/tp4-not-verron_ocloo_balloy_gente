@@ -34,5 +34,5 @@ public :
     /**
      * @brief Destructeur de ZN.
      */
-    ~ZN();  
+    ~ZN() {};  
 };

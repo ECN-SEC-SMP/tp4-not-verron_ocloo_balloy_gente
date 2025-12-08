@@ -3,7 +3,7 @@
  * @brief Déclaration de la classe ZA — zone agricole avec type de culture.
  * 
  * La classe ZA représente une zone agricole, héritant de ZN
- * avec un attribut supplémentaire pour spécifier le type de culture.
+ *   avec un attribut supplémentaire pour spécifier le type de culture.
  *
  * @author Équipe TP
  * @date 2025
@@ -43,7 +43,7 @@ public :
      * @param forme Polygone représentant la géométrie de la parcelle.
      * @param inTypeCulture Type de culture cultivée dans cette zone agricole.
      */
-    ZA(int num, std::string prop, Polygone<int> forme, std::string inTypeCulture) : ZN(num, prop, forme) {};
+    ZA(int num, std::string prop, Polygone<int> forme, std::string inTypeCulture);
     
 //----------------------------------------------------------------------------------------------------
 // Destructeur
