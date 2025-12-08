@@ -36,8 +36,24 @@ public:
      */
     ~ZN() {};
 
+    /**
+     * @brief Retourne le type de la parcelle.
+     * @return "ZN" le type de cette zone non-aedificandi.
+     */
     std::string getType() const override {return this->type;}
+    
+    /**
+     * @brief Calcule la surface constructible (toujours 0 pour ZN).
+     * @return 0, car aucune construction n'est autorisée.
+     */
+    float surfaceConstructible() const override { return 0.0f; }
 
+    /**
+     * @brief Surcharge de l'opérateur d'affichage pour ZN.
+     * @param o Flux de sortie.
+     * @param zn Référence constante à l'objet ZN à afficher.
+     * @return Le flux de sortie modifié.
+     */
     friend std::ostream &operator<<(std::ostream &o, ZN const &zn)
     {
         o << "Parcelle n°" << zn.getNumero() << " :" << std::endl;
@@ -48,3 +64,4 @@ public:
         return o;
     }
 };
+
