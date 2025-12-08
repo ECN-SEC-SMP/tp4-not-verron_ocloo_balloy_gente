@@ -32,7 +32,7 @@ class Parcelle{
         void setNumero(int n);
         void setProprietaire(std::string prop);
         void setForme(Polygone<int> forme);
-        virtual void setType(std::string type) = 0;
+        void setType(std::string type) {this->type = type;};
 
         // Surcharge d'opérateurs
         friend std::ostream& operator<<(std::ostream &o, Parcelle const& p)
