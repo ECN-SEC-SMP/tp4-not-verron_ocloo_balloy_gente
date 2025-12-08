@@ -81,12 +81,16 @@ public:
      */
     void translater(T dx, T dy);
 
-    friend ostream &operator<<(ostream &s, Point2D const &p)
+    
+};
+
+template <typename T>
+ostream &operator<<(ostream &s, Point2D<T> const &p)
     {
         s << "[" << p.x << ", " << p.y << "]";
         return s;
     }
-};
+
 
 template <typename T>
 void Point2D<T>::translater(T dx, T dy)   
