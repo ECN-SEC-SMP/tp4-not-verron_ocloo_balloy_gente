@@ -6,7 +6,7 @@ ASSETSDIR := assets
 all: $(BUILDDIR)/main.out
 
 # Build the final executable
-$(BUILDDIR)/main.out: $(BUILDDIR)/main.o $(BUILDDIR)/Carte.o $(BUILDDIR)/ZAU.o $(BUILDDIR)/ZU.o
+$(BUILDDIR)/main.out: $(BUILDDIR)/main.o $(BUILDDIR)/Carte.o $(BUILDDIR)/Parcelle.o $(BUILDDIR)/ZAU.o $(BUILDDIR)/ZU.o
 	g++ -o $@ $^
 
 # Build main.o
@@ -16,6 +16,10 @@ $(BUILDDIR)/main.o: $(SRCDIR)/main.cpp $(INCDIR)/Point2D.hpp $(INCDIR)/Polygone.
 # Build Carte.o
 $(BUILDDIR)/Carte.o: $(SRCDIR)/Carte.cpp $(INCDIR)/Carte.hpp | $(BUILDDIR)
 	g++ -I$(INCDIR) -c $(SRCDIR)/Carte.cpp -o $(BUILDDIR)/Carte.o
+
+# Build Parcelle.o
+$(BUILDDIR)/Parcelle.o: $(SRCDIR)/Parcelle.cpp $(INCDIR)/Parcelle.hpp | $(BUILDDIR)
+	g++ -I$(INCDIR) -c $(SRCDIR)/Parcelle.cpp -o $(BUILDDIR)/Parcelle.o
 
 # Build ZAU.o
 $(BUILDDIR)/ZAU.o: $(SRCDIR)/ZAU.cpp $(INCDIR)/ZAU.hpp | $(BUILDDIR)
