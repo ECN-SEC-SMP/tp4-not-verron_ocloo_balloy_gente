@@ -17,7 +17,7 @@ void ZU::setSurfaceConstruite(float S) {
 }
 
 float ZU::surfaceConstructible() const{
-    return ((this->getPConstructible()/100)*this->getSurface() - this->surfaceConstruite);
+    return (getSurface() * getPConstructible() / 100.0) - surfaceConstruite;
 }
 
 std::string ZU::getType() const {

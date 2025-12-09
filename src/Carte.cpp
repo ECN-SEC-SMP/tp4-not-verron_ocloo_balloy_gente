@@ -19,28 +19,33 @@ Carte::Carte(std::string file) {
             std::cout<< "Ligne 1/2" << std::endl;
             std::stringstream ss(ligne);
 
-            getline(ss, typeParcelle, ' ');
+            // getline(ss, typeParcelle, ' ');
+            ss >> typeParcelle;
             
             std::cout << "Enregistrement d'une parcelle de type : " << typeParcelle << std::endl;
             if (typeParcelle == "ZU") {
-                getline(ss, numero, ' ');
-                getline(ss, propriétaire, ' ');
-                getline(ss, partieConstructible, ' ');
-                getline(ss, surfaceConstructible, ' ');
+                // getline(ss, numero, ' ');
+                // getline(ss, propriétaire, ' ');
+                // getline(ss, partieConstructible, ' ');
+                // getline(ss, surfaceConstructible, ' ');
+                ss >> numero >> propriétaire >> partieConstructible >> surfaceConstructible;
             }
             else if (typeParcelle == "ZAU") {
-                getline(ss, numero, ' ');
-                getline(ss, propriétaire, ' ');
-                getline(ss, partieConstructible, ' ');
+                // getline(ss, numero, ' ');
+                // getline(ss, propriétaire, ' ');
+                // getline(ss, partieConstructible, ' ');
+                ss >> numero >> propriétaire >> partieConstructible;
             }
             else if (typeParcelle == "ZA") {
-                getline(ss, numero, ' ');
-                getline(ss, propriétaire, ' ');
-                getline(ss, typeCulture, ' ');
+                // getline(ss, numero, ' ');
+                // getline(ss, propriétaire, ' ');
+                // getline(ss, typeCulture, ' ');
+                ss >> numero >> propriétaire >> typeCulture;
             }
             else if (typeParcelle == "ZN") {
-                getline(ss, numero, ' ');
-                getline(ss, propriétaire, ' ');
+                // getline(ss, numero, ' ');
+                // getline(ss, propriétaire, ' ');
+                ss >> numero >> propriétaire;
             }
             else {
                 std::cout << "Type de parcelle inconnu" << std::endl;
@@ -50,7 +55,8 @@ Carte::Carte(std::string file) {
             std::cout<< "Ligne 2/2" << std::endl;
             getline(fichier, ligne); // Lit la deuxième ligne
             std::stringstream ss2(ligne);
-            while (getline(ss2, mot, ' ')) {
+            // while (/getline(ss2, mot, ' ')) {
+            while (ss2 >> mot) {
                 std::cout << "Coordonnée Point string : " << mot << std::endl;
                 std::stringstream coord(mot);
                 getline(coord, x_str, '[');// enlever le [

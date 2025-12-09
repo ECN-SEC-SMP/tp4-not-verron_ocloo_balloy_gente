@@ -1,7 +1,7 @@
 #include "../include/Carte.hpp"
 
 int main() {
-    Carte carte("../assets/Parcelles_short.txt");
+    Carte carte("../assets/Parcelles.txt");
     carte.afficherParcelles();
     return 0;
 }
